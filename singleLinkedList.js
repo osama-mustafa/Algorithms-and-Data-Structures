@@ -1,3 +1,4 @@
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -71,6 +72,24 @@ class SinglyLinkedList {
             this.tail.next = null;
             this.length--;
             return targetNode;
+        }
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return null
+        } else if (index == 0) {
+            return this.head;
+        } else if (index == this.length - 1) {
+            return this.tail;
+        } else {
+            let counter = 0;
+            let current = this.head;
+            while (index != counter) {
+                current = current.next;
+                counter++;
+            }
+            return current;
         }
     }
 }
